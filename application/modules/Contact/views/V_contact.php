@@ -36,10 +36,10 @@
                                 <div class="input-group flex-nowrap">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="addon-wrapping">
-                                            <img src='<?= base_url('assets/img/flag/IND.png'); ?>' class='card-img-top rounded-circle' style='width: 1rem;'>
+                                            <i class="fab fa-whatsapp"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="895-3632-60970" readonly>
+                                    <input type="text" class="form-control" placeholder="+62 895-3632-60970" readonly>
                                 </div>
                             </td>
                         </tr>
