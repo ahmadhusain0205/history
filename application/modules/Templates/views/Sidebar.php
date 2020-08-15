@@ -4,11 +4,11 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <br>
-                    <a class="nav-link text-primary" href="<?= base_url('Profile'); ?>">
+                    <a type="button" class="nav-link text-primary" href="<?= base_url('Profile'); ?>">
                         <img class="img-profile rounded-circle col-lg-4" src="<?= base_url('assets/img/logos.png'); ?>">
-                        <div>
+                        <b class="text-primary">
                             <?= $this->session->userdata('username'); ?>
-                        </div>
+                        </b>
                     </a>
                     <div class="sb-sidenav-menu-heading">Core</div>
                     <a class="nav-link" href="<?= base_url('Dashboard'); ?>">
