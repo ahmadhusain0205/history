@@ -97,7 +97,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="id_course">Course</label>
-                            <select name="id_course" id="id_course" class="form-control">
+                            <select name="id_course" id="id_course" class="form-control" required>
                                 <option value="">-- Select Course --</option>
                                 <?php foreach ($course as $c) : ?>
                                     <option value="<?= $c->id; ?>"><?= $c->course; ?></option>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-group">
                             <label for="id_score">Score</label>
-                            <select name="id_score" id="id_score" class="form-control">
+                            <select name="id_score" id="id_score" class="form-control" required>
                                 <option value="">-- Select Score --</option>
                                 <?php foreach ($score as $s) : ?>
                                     <option value="<?= $s->id; ?>"><?= $s->grade; ?></option>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="id_score">Score</label>
-                                <select name="id_score" id="id_score" class="form-control">
+                                <select name="id_score" id="id_score" class="form-control" required>
                                     <option value="">-- Select Score --</option>
                                     <?php foreach ($score as $s) : ?>
                                         <option value="<?= $s->id; ?>"><?= $s->grade; ?></option>
