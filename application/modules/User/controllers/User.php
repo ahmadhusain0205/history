@@ -10,6 +10,8 @@ class User extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->session->userdata('status') == 'user_login') {
             redirect('Login?alert=belum_login');
+        } else if (!isset($_SESSION['username'])) {
+            redirect('Login?alert=belum_login');
         }
     }
     function index()
