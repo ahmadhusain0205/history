@@ -26,34 +26,98 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead align="center">
+                        <?php
+                        if ($this->session->userdata('status') == 'admin_login') {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
                                 <tr>
-                                    <th width="1%">No</th>
-                                    <th width="25%">Course</th>
-                                    <th width="15%">SKS</th>
-                                    <th width="25%">Aksi</th>
+                                    <th width='1%'>No</th>
+                                    <th width='25%'>Course</th>
+                                    <th width='15%'>Username</th>
+                                    <th width='15%'>SKS</th>
+                                    <th width='25%'>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php $no = "1";
-                                foreach ($course as $c) : ?>
-                                    <tr>
-                                        <td align="center"><?= $no++; ?></td>
-                                        <td><?= $c->course; ?></td>
-                                        <td align="center"><?= $c->sks; ?></td>
-                                        <td align="center">
-                                            <button type="button" class="btn btn-sm btn-warning shadow mb-4" data-toggle="modal" data-target="#editCourse<?php echo $c->id; ?>">
-                                                <i class="fa fa-wrench"></i> Edit
+                            <tbody>";
+                            $no = '1';
+                            foreach ($course as $c) :
+                                echo "<tr>
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td>";
+                                echo $c->course;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $c->username;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $c->sks;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editCourse";
+                                echo $c->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-danger shadow mb-4" data-toggle="modal" data-target="#deleteCourseModal<?php echo $c->id; ?>">
-                                                <i class="fa fa-trash"></i> Hapus
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteCourseModal";
+                                echo $c->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
                                             </button>
                                         </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                    </tr>";
+                            endforeach;
+                            echo "
                             </tbody>
                         </table>
+                            ";
+                        } else {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
+                                <tr>
+                                    <th width='1%'>No</th>
+                                    <th width='25%'>Course</th>
+                                    <th width='15%'>SKS</th>
+                                    <th width='25%'>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+                            $no = '1';
+                            foreach ($course as $c) :
+                                echo "<tr>
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td>";
+                                echo $c->course;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $c->sks;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editCourse";
+                                echo $c->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
+                                            </button>
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteCourseModal";
+                                echo $c->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
+                                            </button>
+                                        </td>
+                                    </tr>";
+                            endforeach;
+                            echo "
+                            </tbody>
+                        </table>
+                            ";
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>

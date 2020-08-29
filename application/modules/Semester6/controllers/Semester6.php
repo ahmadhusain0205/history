@@ -31,6 +31,7 @@ class Semester6 extends CI_Controller
             $data = array(
                 'id_course' => $id_course,
                 'id_score' => $id_score,
+                'id_user' => $this->session->userdata('id'),
                 'semester' => $semester
             );
             $this->M_semester6->insert($data, 'semester');
@@ -90,6 +91,7 @@ class Semester6 extends CI_Controller
             $data = array(
                 'id_course' => $id_course,
                 'id_score' => $id_score,
+                'id_user' => $this->session->userdata('id'),
                 'semester' => $semester
             );
             $this->db->where('id', $id);

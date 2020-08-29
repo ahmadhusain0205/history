@@ -21,6 +21,7 @@ class Score extends CI_Controller
     {
         $grade = $this->input->post('grade');
         $data = array(
+            'id_user' => $this->session->userdata('id'),
             'grade' => $grade
         );
         $this->M_score->insert($data, 'score');
@@ -49,6 +50,7 @@ class Score extends CI_Controller
             $grade = $this->input->post('grade');
             $data = array(
                 'id' => $id,
+                'id_user' => $this->session->userdata('id'),
                 'grade' => $grade
             );
             $this->db->where('id', $id);

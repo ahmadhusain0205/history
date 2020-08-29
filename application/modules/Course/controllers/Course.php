@@ -24,6 +24,7 @@ class Course extends CI_Controller
         $course = $this->input->post('course');
         $sks = $this->input->post('sks');
         $data = array(
+            'id_user' => $this->session->userdata('id'),
             'course' => $course,
             'sks' => $sks
         );
@@ -54,6 +55,7 @@ class Course extends CI_Controller
             $sks = $this->input->post('sks');
             $data = array(
                 'id' => $id,
+                'id_user' => $this->session->userdata('id'),
                 'course' => $course,
                 'sks' => $sks
             );
