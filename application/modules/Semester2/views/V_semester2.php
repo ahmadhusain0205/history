@@ -13,9 +13,9 @@
             <a href="<?= base_url('Semester2/downloadAll'); ?>" type="button" class="btn btn-sm btn-success shadow mb-4">
                 <i class="fa fa-download"></i> Unduh Semua
             </a>
-            <button type="button" class="btn btn-sm btn-danger shadow mb-4 float-right" data-toggle="modal" data-target="#hapusModal">
+            <!-- <button type="button" class="btn btn-sm btn-danger shadow mb-4 float-right" data-toggle="modal" data-target="#hapusModal">
                 <i class="fa fa-trash"></i> Hapus Semua Data
-            </button>
+            </button> -->
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
