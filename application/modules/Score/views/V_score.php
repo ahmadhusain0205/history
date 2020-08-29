@@ -24,32 +24,91 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead align="center">
+                        <?php
+                        if ($this->session->userdata('status') == 'admin_login') {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
                                 <tr>
-                                    <th width="1%">No</th>
-                                    <th width="25%">Score</th>
-                                    <th width="25%">Aksi</th>
+                                    <th width='1%'>No</th>
+                                    <th width='25%'>Score</th>
+                                    <th width='25%'>Username</th>
+                                    <th width='25%'>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php $no = "1";
-                                foreach ($score as $s) : ?>
+                            <tbody>";
+                            $no = '1';
+                            foreach ($score as $s) :
+                                echo "
                                     <tr>
-                                        <td align="center"><?= $no++; ?></td>
-                                        <td align="center"><?= $s->grade; ?></td>
-                                        <td align="center">
-                                            <button type="button" class="btn btn-sm btn-warning shadow mb-4" data-toggle="modal" data-target="#editScore<?php echo $s->id; ?>">
-                                                <i class="fa fa-wrench"></i> Edit
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $s->grade;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $s->username;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editScore";
+                                echo $s->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-danger shadow mb-4" data-toggle="modal" data-target="#deleteScoreModal<?php echo $s->id; ?>">
-                                                <i class="fa fa-trash"></i> Hapus
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteScoreModal";
+                                echo $s->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
                                             </button>
                                         </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                    </tr>";
+                            endforeach;
+                            echo "
                             </tbody>
                         </table>
+                            ";
+                        } else {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
+                                <tr>
+                                    <th width='1%'>No</th>
+                                    <th width='25%'>Score</th>
+                                    <th width='25%'>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+                            $no = '1';
+                            foreach ($score as $s) :
+                                echo "
+                                    <tr>
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $s->grade;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editScore";
+                                echo $s->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
+                                            </button>
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteScoreModal";
+                                echo $s->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
+                                            </button>
+                                        </td>
+                                    </tr>";
+                            endforeach;
+                            echo "
+                            </tbody>
+                        </table>
+                            ";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
