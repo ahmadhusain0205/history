@@ -26,38 +26,113 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead align="center">
+                        <?php
+                        if ($this->session->userdata('status') == 'admin_login') {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
                                 <tr>
-                                    <th width="1%">No</th>
-                                    <th width="50%">Course</th>
-                                    <th width="10%">SKS</th>
-                                    <th width="10%">Grade</th>
-                                    <th width="10%">Semester</th>
-                                    <th width="20%">Aksi</th>
+                                    <th width='1%'>No</th>
+                                    <th width='20%'>Course</th>
+                                    <th width='10%'>SKS</th>
+                                    <th width='10%'>Grade</th>
+                                    <th width='10%'>Username</th>
+                                    <th width='10%'>Semester</th>
+                                    <th width='20%'>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php $no = "1";
-                                foreach ($semester1 as $se) : ?>
-                                    <tr>
-                                        <td align="center"><?= $no++; ?></td>
-                                        <td><?= $se->course; ?></td>
-                                        <td><?= $se->sks; ?></td>
-                                        <td><?= $se->grade; ?></td>
-                                        <td><?= $se->semester; ?></td>
-                                        <td align="center">
-                                            <button type="button" class="btn btn-sm btn-warning shadow mb-4" data-toggle="modal" data-target="#editSemester1Modal<?= $se->id; ?>">
-                                                <i class="fa fa-wrench"></i> Edit
+                            <tbody>";
+                            $no = '1';
+                            foreach ($semester1 as $se) :
+                                echo "<tr>
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td>";
+                                echo $se->course;
+                                echo "</td>
+                                        <td>";
+                                echo $se->sks;
+                                echo "</td>
+                                        <td>";
+                                echo $se->grade;
+                                echo "</td>
+                                        <td>";
+                                echo $se->username;
+                                echo "</td>
+                                        <td>";
+                                echo $se->semester;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editSemester1Modal";
+                                echo $se->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-danger shadow mb-4" data-toggle="modal" data-target="#deleteSemester1Modal<?= $se->id; ?>">
-                                                <i class="fa fa-trash"></i> Hapus
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteSemester1Modal";
+                                echo $se->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
                                             </button>
                                         </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                    </tr>";
+                            endforeach;
+                            echo "
                             </tbody>
                         </table>
+                            ";
+                        } else {
+                            echo "
+                            <table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                            <thead align='center'>
+                                <tr>
+                                    <th width='1%'>No</th>
+                                    <th width='20%'>Course</th>
+                                    <th width='10%'>SKS</th>
+                                    <th width='10%'>Grade</th>
+                                    <th width='10%'>Semester</th>
+                                    <th width='20%'>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+                            $no = '1';
+                            foreach ($semester1 as $se) :
+                                echo "<tr>
+                                        <td align='center'>";
+                                echo $no++;
+                                echo "</td>
+                                        <td>";
+                                echo $se->course;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $se->sks;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $se->grade;
+                                echo "</td>
+                                        <td align='center'>";
+                                echo $se->semester;
+                                echo "</td>
+                                        <td align='center'>
+                                            <button type='button' class='btn btn-sm btn-warning shadow mb-4' data-toggle='modal' data-target='#editSemester1Modal";
+                                echo $se->id;
+                                echo "'>
+                                                <i class='fa fa-wrench'></i> Edit
+                                            </button>
+                                            <button type='button' class='btn btn-sm btn-danger shadow mb-4' data-toggle='modal' data-target='#deleteSemester1Modal";
+                                echo $se->id;
+                                echo "'>
+                                                <i class='fa fa-trash'></i> Hapus
+                                            </button>
+                                        </td>
+                                    </tr>";
+                            endforeach;
+                            echo "
+                            </tbody>
+                        </table>
+                            ";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
